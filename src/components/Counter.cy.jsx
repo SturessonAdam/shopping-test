@@ -50,7 +50,7 @@ describe('<Counter />', () => {
         })
     })
 
-    describe('2 "-" button ', () => {
+    describe('2. "-" button ', () => {
 
         it('should decrease value by 1 after every click on "-"', () => {
             cy.get(".add-button").click(); //upp till 2
@@ -60,6 +60,29 @@ describe('<Counter />', () => {
 
             cy.get(".value").contains(0).should("be.visible");
 
+        })
+
+        it('should decrease value only down to 0', () => {
+            cy.get(".subtract-button").click();
+            cy.get(".subtract-button").click();
+            cy.get(".subtract-button").click();
+            cy.get(".subtract-button").click();
+
+            cy.get(".value").contains(0).should("be.visible");
+            //kontrollerar att det stannar på 0
+
+        })
+    })
+
+    describe('3. "random" button', () => {
+
+        it('should random a number between 0 and 100 on click on "suprise me"', () => {
+            cy.get(".random-button").click();
+
+            cy.get('.value').invoke('text').then(text => {
+                let x = Number(text.trim())
+                expect(x).to.be.within(0,100);
+            })
         })
     })
 
