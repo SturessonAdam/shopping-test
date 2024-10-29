@@ -41,6 +41,26 @@ describe('<Counter />', () => {
             button.click();
             cy.get(".value").contains(2).should("be.visible");
         })
+
+        it('should increase value by 1 after every click on the "+"', () => {
+            button.click();
+            button.click();
+            button.click();
+            cy.get(".value").contains(4).should("be.visible");
+        })
+    })
+
+    describe('2 "-" button ', () => {
+
+        it('should decrease value by 1 after every click on "-"', () => {
+            cy.get(".add-button").click(); //upp till 2
+
+            cy.get(".subtract-button").click();
+            cy.get(".subtract-button").click(); //ner till 0
+
+            cy.get(".value").contains(0).should("be.visible");
+
+        })
     })
 
   })
