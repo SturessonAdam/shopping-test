@@ -15,9 +15,9 @@ const Counter = () => {
         <div className ="counter">
             Product counter
             <p className="value">{count}</p>
-            <button className="add button" onClick={handleAdd}> + </button>
-            <button className="subtract button" onClick={handleSubtract}> - </button>
-            <button className="random button" onClick={handleRandom}> suprise me </button>
+            <button className="add-button" onClick={handleAdd}> + </button>
+            <button className="subtract-button" onClick={handleSubtract}> - </button>
+            <button className="random-button" onClick={handleRandom}> suprise me </button>
         </div>
     )
 }
